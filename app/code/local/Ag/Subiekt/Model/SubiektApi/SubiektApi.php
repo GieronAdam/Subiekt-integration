@@ -8,16 +8,21 @@ class Ag_Subiekt_Model_SubiektApi_SubiektApi extends Ag_Subiekt_Model_SubiektApi
         $this->helper = Mage::helper('subiekt');
     }
 
+    /**
+     * @param $request
+     * @return mixed|string
+     */
     public function sbktAddOrder($request)
     {
-        $uri = '/anything';
+        $uri = '/anything'; //order/add
         $response = $this->_callApi($this->_getApiAddress(), $uri, 'GET', $request);
         $response = json_decode($response);
         return $response;
     }
 
-    public function sbktMakesaledoc($api_key, $data = array())
+    public function sbktMakesaledoc($request)
     {
+        $uri = '/order/makesaledoc';
         $data ='{
                 "api_key": "pc0hv61itbxbhtXYujsfdjer774kfsdasd",
                 "data": {
@@ -40,6 +45,7 @@ class Ag_Subiekt_Model_SubiektApi_SubiektApi extends Ag_Subiekt_Model_SubiektApi
 
     public function sbktGetOrderPdf($api_key, $data = array())
     {
+        $uri = 'order/getpdf';
         $data ='{
                      "api_key": "pc0hv61itbxbhtXYujsfdjer774kfsdasd",
                      "data": {
@@ -48,16 +54,21 @@ class Ag_Subiekt_Model_SubiektApi_SubiektApi extends Ag_Subiekt_Model_SubiektApi
                 }';
     }
 
+    /**
+     * @param $request
+     * @return mixed
+     */
     public function sbktgetOrderInfo($request)
     {
-        $uri = '/anything';
+        $uri = '/anything'; //order/get
         $response = $this->_callApi($this->_getApiAddress(), $uri, 'GET', $request);
 
         return  json_decode($response);
     }
 
-    public function sbktGetOrderState($api_key, $data = array())
+    public function sbktGetDocumentState($api_key, $data = array())
     {
+        $uri = '/document/getstate';
         $data ='{
                     "api_key": "pc0hv61itbxbhtXYujsfdjer774kfsdasd",
                     "data": {
@@ -68,6 +79,7 @@ class Ag_Subiekt_Model_SubiektApi_SubiektApi extends Ag_Subiekt_Model_SubiektApi
 
     public function sbktGetDocInfo($api_key, $data = array())
     {
+        $uri = '/document/get';
         $data ='{
                     "api_key": "pc0hv61itbxbhtXYujsfdjer774kfsdasd",
                     "data": {
@@ -132,6 +144,7 @@ class Ag_Subiekt_Model_SubiektApi_SubiektApi extends Ag_Subiekt_Model_SubiektApi
 
     public function sbktGetPdf()
     {
+        $uri = '/document/getpdf';
         $data ='{
                     "api_key": "pc0hv61itbxbhtXYujsfdjer774kfsdasd",
                     "data": {
@@ -141,6 +154,7 @@ class Ag_Subiekt_Model_SubiektApi_SubiektApi extends Ag_Subiekt_Model_SubiektApi
 
     public function sbktAddProduct()
     {
+        $uri = '/product/add';
         $data = '{
                     "api_key": "pc0hv61itbxbhtXYujsfdjer774kfsdasd",
                     "data": {
@@ -155,6 +169,7 @@ class Ag_Subiekt_Model_SubiektApi_SubiektApi extends Ag_Subiekt_Model_SubiektApi
 
     public function sbktUpdateProduct()
     {
+        $uri = '/product/get';
         $data = '{
                     "api_key": "pc0hv61itbxbhtXYujsfdjer774kfsdasd",
                     "data": {
@@ -169,6 +184,7 @@ class Ag_Subiekt_Model_SubiektApi_SubiektApi extends Ag_Subiekt_Model_SubiektApi
 
     public function sbktGetProductInfo()
     {
+        $uri = '/product/get';
         $data ='{
                     "api_key": "pc0hv61itbxbhtXYujsfdjer774kfsdasd",
                     "data": {
