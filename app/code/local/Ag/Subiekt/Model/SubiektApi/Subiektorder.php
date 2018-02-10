@@ -49,7 +49,7 @@ class Ag_Subiekt_Model_SubiektApi_Subiektorder extends Ag_Subiekt_Model_SubiektA
             )
         );
 
-       $response = $this->sbktAddOrder($sbkt->toArray());
+        $response = $this->sbktAddOrder($sbkt->toArray());
         if ($response->state == 'success'){
             $this->helper->saveAttr('subiekt_response',$response->data->order_ref,$order);
         } else {
