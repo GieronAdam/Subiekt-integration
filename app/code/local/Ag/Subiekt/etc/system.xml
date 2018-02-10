@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <subiekt translate="label" module="subiekt">
+            <label>Subiekt GT</label>
+            <sort_order>0</sort_order>
+        </subiekt>
+    </tabs>
+    <sections>
+        <subiekt translate="label" module="subiekt">
+        <label>Subiekt GT</label>
+        <tab>customconfig</tab>
+        <frontend_type>text</frontend_type>
+        <sort_order>1</sort_order>
+        <show_in_default>1</show_in_default>
+        <show_in_website>1</show_in_website>
+        <show_in_store>1</show_in_store>
+        <groups>
+            <api_configuration translate="label">
+            <label>Subiekt GT</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <fields>
+                <apiaddress>
+                    <label>API address</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </apiaddress>
+                <apikey>
+                    <label>API secret key</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </apikey>
+            </fields>
+            </api_configuration>
+        </groups>
+        </subiekt>
+    </sections>
+</config>
