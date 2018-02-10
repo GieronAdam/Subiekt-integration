@@ -1,6 +1,6 @@
 <?php
 
-class Fwc_OrderApi_Adminhtml_Block_Sales_Order_Grid extends Fwc_CountOrderPage_Adminhtml_Block_Sales_Order_Grid
+class Fwc_OrderApi_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Sales_Order_Grid
 {
     protected function _prepareCollection()
     {
