@@ -26,7 +26,7 @@ class Ag_Subiekt_Model_SubiektApi_Subiektorder extends Ag_Subiekt_Model_SubiektA
         $sbkt->setApikey($this->_getApiKey());
         $sbkt->setData('data',
             array(
-                'comments' => 'Płatność: '.$order->getPaymentMethod().' Wysyłka: '.$order->getData('shipping_description'),
+                'comments' => 'Płatność: '.$order->getPayment()->getMethod().' Wysyłka: '.$order->getData('shipping_description'),
                 'reference' => $order->getIncrementId(),
                 'create_product_if_not_exists' => null,
                 'amount' => number_format($order->getGrandTotal(),2),
