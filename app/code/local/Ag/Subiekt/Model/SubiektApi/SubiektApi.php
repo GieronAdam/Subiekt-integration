@@ -48,61 +48,12 @@ class Ag_Subiekt_Model_SubiektApi_SubiektApi extends Ag_Subiekt_Model_SubiektApi
                 }';
     }
 
-    public function getOrderInfo($api_key, $data = array())
+    public function sbktgetOrderInfo($request)
     {
-        $data = '{
-                    "api_key": "pc0hv61itbxbhtXYujsfdjer774kfsdasd",
-                    "data": {
-                        "order_ref": "ZK 312/01/2018"
-                    }
-                }';
-        $response = '{
-                    "state": "success",
-                    "data": {
-                        "products": [
-                            {
-                                "name": "LEKI Rękawice FUSE S MF TOUCH r.9 black",
-                                "code": "4028173073672",
-                                "qty": "1.0000",
-                                "price": "415.6500"
-                            },
-                            {
-                                "name": "Koszt wysyłki on-line",
-                                "code": "KOSZT_WYSYLKI",
-                                "qty": "1.0000",
-                                "price": "3.0000"
-                            }
-                        ],
-                        "reference": "OTDR 5453343",
-                        "comments": "Płatność: Gotówka przy odbiorze, Wysyłka: Kurier DPD",
-                        "customer": {
-                            "ref_id": "OTDRCUST 4673456",
-                            "company_name": null,
-                            "tax_id": "",
-                            "fullname": "Monika Nieznana",
-                            "email": "monikanieznana@gazeta.pl",
-                            "city": "Gdańsk",
-                            "post_code": "80-865",
-                            "address": "Smoleńska 666",
-                            "phone": "666666666",
-                            "is_company": false
-                        },
-                        "reservation": 1,
-                        "order_ref": "ZK 312/01/2018",
-                        "selling_doc": null,
-                        "amount": "418.6600",
-                        "paid_amount": 0,
-                        "state": 7,
-                        "date_of_delivery": {
-                            "date": "2018-01-08 00:00:00.000000",
-                            "timezone_type": 3,
-                            "timezone": "Europe/Berlin"
-                        },
-                        "payment_comments": "",
-                        "is_exists": true,
-                        "gt_id": 184373
-                    }
-                }';
+        $uri = '/anything';
+        $response = $this->_callApi($this->_getApiAddress(), $uri, 'GET', $request);
+
+        return  json_decode($response);
     }
 
     public function sbktGetOrderState($api_key, $data = array())

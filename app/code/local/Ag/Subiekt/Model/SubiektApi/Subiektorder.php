@@ -55,15 +55,18 @@ class Ag_Subiekt_Model_SubiektApi_Subiektorder extends Ag_Subiekt_Model_SubiektA
         } else {
             $this->helper->saveAttr('subiekt_response','Failed',$order);
         }
+        // this response can be removed
         return $response->json;
     }
 
-    public function sbktOrderInfo()
+    public function sbktOrderInfo($order)
     {
         $sbkt = new Varien_Object();
         $sbkt->setApikey($this->_getApiKey());
         $sbkt->setData('data',array(
-
+            'order_ref' => $order->getData('subiekt_response')
         ));
+
+        return $this->sbktgetOrderInfo($sbkt->toArray());
     }
 }
