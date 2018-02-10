@@ -1,6 +1,6 @@
 <?php
 
-class Fwc_OrderApi_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Sales_Order_Grid
+class Ag_Subiekt_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block_Sales_Order_Grid
 {
     protected function _prepareCollection()
     {
@@ -10,7 +10,7 @@ class Fwc_OrderApi_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block
         (
             'si' => Mage::getModel('core/resource')->getTableName('sales/order')),
             'si.entity_id=main_table.entity_id',
-            array('apiresponse' => 'apiresponse')
+            array('subiekt_response' => 'subiekt_response')
         );
         $this->setCollection($collection);
         return parent::_prepareCollection();
@@ -19,21 +19,13 @@ class Fwc_OrderApi_Adminhtml_Block_Sales_Order_Grid extends Mage_Adminhtml_Block
     protected function _prepareColumns()
     {
 
-        $this->addColumnAfter('apisent', array(
-            'header' => Mage::helper('orderapi')->__('Api Status'),
-            'index' => 'apisent',
+        $this->addColumnAfter('subiekt_response', array(
+            'header' => Mage::helper('subiekt')->__('Subiekt Response'),
+            'index' => 'subiekt_response',
             'width' => '70px',
             'type' => 'text',
             'filter'=>false
-        ), 'external_order_id');
-
-        $this->addColumnAfter('apiresponse', array(
-            'header' => Mage::helper('orderapi')->__('SAP Response'),
-            'index' => 'apiresponse',
-            'width' => '70px',
-            'type' => 'text',
-            'filter'=>false
-        ), 'apisent');
+        ), 'increment_id');
 
         return parent::_prepareColumns();
     }
