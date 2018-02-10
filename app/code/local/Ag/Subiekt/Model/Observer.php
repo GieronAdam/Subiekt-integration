@@ -8,6 +8,6 @@ class Ag_Subiekt_Model_Observer
         $sbktObj = Mage::getModel('subiekt/SubiektApi_Subiektorder');
         $response = $sbktObj->sbktSaveOrder($order);
         Mage::log($response,null,'logObserver.log',true);
-        die();
+//        die();
     }
 }

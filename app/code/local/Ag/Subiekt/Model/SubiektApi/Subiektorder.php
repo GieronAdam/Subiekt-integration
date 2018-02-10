@@ -19,9 +19,12 @@ class Ag_Subiekt_Model_SubiektApi_Subiektorder extends Ag_Subiekt_Model_SubiektA
 
     public function sbktSaveOrder($order)
     {
-       $sbkt = new Varien_Object();
-       $sbkt->setApikey($this->_getApiKey());
-       $sbkt->setData('data',
+        $address_no = $order->getShippingAddress()->getData('street');
+        $address_no = preg_split("/\\r\\n|\\r|\\n/",$address_no,null);
+        unset($address_no[0]);
+        $sbkt = new Varien_Object();
+        $sbkt->setApikey($this->_getApiKey());
+        $sbkt->setData('data',
             array(
                 'comments' => 'Płatność: '.$order->getPaymentMethod().' Wysyłka: '.$order->getData('shipping_description'),
                 'reference' => $order->getIncrementId(),
@@ -32,8 +35,8 @@ class Ag_Subiekt_Model_SubiektApi_Subiektorder extends Ag_Subiekt_Model_SubiektA
                     "firstname" => $order->getCustomerFirstname(),
                     "lastname" => $order->getCustomerLastname(),
                     "email" => $order->getCustomerEmail(),
-                    "address" => $order->getShippingAddress()->getData('street'),
-                    "address_no" => "666",
+                    "address" => preg_replace("/\\r\\n|\\r|\\n/",'',preg_replace('/[[:digit:]]/','', $order->getShippingAddress()->getData('street'))),
+                    "address_no" => implode('/',$address_no),
                     "city" => $order->getShippingAddress()->getData('city'),
                     "post_code" => $order->getBillingAddress()->getData('postcode'),
                     "phone" => $order->getBillingAddress()->getData('telephone'),
